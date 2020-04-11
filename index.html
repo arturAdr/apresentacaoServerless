@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Serverless.</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				Serverless.
+				<br>
+				“computação sem servidores”
+			</section>
+			<section>
+				<section>
+					O que é arquitetura Serverless ?
+				</section>
+				<section>
+					É uma arquitetura de computação orientada a eventos. Sua principal proposta é permitir que as empresas de software
+					criem e mantenham seus serviços sem se preocupar com a infraestrutura em que esses aplicativos estão rodando.
+				</section>
+				<section>
+					Trata-se de um conceito relativamente novo, que ganhou popularidade devido aos serviços como AWS Lambda, Azure
+					Fuctions, Cloud Functions, entre outros.
+				</section>
+				<section>
+					Ou seja Serverless referem-se a aplicativos que dependem significativamente de serviços de terceiros (conhecido
+					como Backend como Serviço ou “BaaS”) ou no código personalizado que é executado em contêineres efêmeros (Função
+					como Serviço ou “FaaS”)
+				</section>
+			</section>
+			<section>
+				BaaS (Backend como Serviço)
+				<section>
+					Um bom exemplo para explicar BaaS é você imaginar um aplicativo feito em apenas uma página, os chamados SPA(Single
+					Page Application) conectado diretamente a algum sistema de banco de dados na nuvem, como o Firebase ou com seu
+					sistema de login inteiramente dependente de um serviço como o Auth0.com
+				</section>
+				<section>
+					Em ambos os casos, a lógica que torna a sua aplicação única está implementada no javascript da SPA em sua página
+					HTML, dependendo de um serviço de terceiros para api backend. Neste caso você não escreve o código backend, apenas
+					faz configurações básicas e utiliza o serviço de backend. Por isso é chamado de “Backend como Serviço” .
+				</section>
+			</section>
+			<section>
+				FaaS (Função como Serviço)
+				<section>
+					Aqui as coisas ficam um pouco mais interessantes e também é aqui que entram os contêiners efêmeros….
+					No FaaS o serviço provê toda a interface necessária para a resposta de requisições HTTP, se preocupando apenas em
+					escrever a parte fundamental de seu código para cada rota separadamente. Cada rota HTTP é enxergada como um
+					serviço, e cada serviço é escrito em apenas uma função em seu código. Os chamados “Nanoserviços”. Sim! Menor ainda
+					que Microserviços.
+				</section>
+				<section>
+					Atualmente, os serviços mais conhecidos do mercado que trabalham com FaaS são AWS Lambda e Google Cloud Functions.
+				</section>
+			</section>
+			<section>
+				<section>
+					E os contêiners efêmeros?
+				</section>
+				<section>
+					Contêiner efêmeros não é nada mais que um contêiner com pouca duração ou com pouco tempo de vida. Trata-se de um
+					contêiner iniciado apenas para executar o código que foi solicitado e depois de pouco tempo ele já será desligado
+					ou destruído.
+				</section>
+				<section>
+					Caso você não saiba o que é um contêiner, pode imagina-lo como uma máquina de servidor muito pequena ou como uma
+					máquina virtual.
+				</section>
+			</section>
+			<section>
+				<section>
+					Quais as vantagens da Arquitetura Serverless?
+				</section>
+				<section>
+					Redução de custo.<br>
+					Cada vez que sua função é executada, você é cobrado apenas pelo processamento consumido. Sendo assim, você não
+					paga por tempo ocioso, que é um problema que ocorre em máquinas virtuais.
+				</section>
+				<section>
+					Escalabilidade.<br>
+					O céu é o limite para escalabilidade de aplicações que fazem bom uso de FaaS e BaaS, já que toda a
+					responsabilidade de infraestrutura é do provedor
+				</section>
+				<section>
+					Heterogeneidade.<br>
+					Código desacoplado e independente também significa que você pode fazer uso de diferentes tecnologias na sua
+					aplicação
+				</section>
+				<section>
+					Resiliência.<br>
+					como as partes da sua aplicação serão auto-suficientes e desacopladas, a falha em uma parte dela não significa
+					falha geral. Aplicações podem fazer uso disso para planejar falhas parciais e como lidar com elas.
+				</section>
+			</section>
+			<section>
+				<section>
+					Quais as desvantagens da Arquitetura Serverless?
+				</section>
+				<section>
+					● Você tende a se tornar dependente do seu provedor (sofrendo lock-in);<br>
+					● a fragmentação do código, se em conjunto com desorganização, pode muito bem ser um caos maior do que lidar com
+					os problemas de aplicações tradicionais.
+				</section>
+			</section>
+			<section>
+				Fontes
+				<section>
+					https://blog.tecnospeed.com.br/o-que-e-arquitetura-serverless/<br>
+					https://bossabox.com/blog/serverless-beneficios-arquitetura/<br>
+					https://medium.com/@dayvsonlima/voc%C3%AA-sabe-o-que-%C3%A9-arquitetura-serverless-1f6dd1184e5b<br>
+					https://serverless-stack.com/chapters/pt/what-is-serverless.html
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
